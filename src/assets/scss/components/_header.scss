@@ -1,0 +1,35 @@
+@import "../base/var";
+
+.header {
+	&__title {
+		margin:0;
+		padding:20px;
+		text-align:center;
+		font-family:"Merienda", cursive;
+	}
+
+	&__letter {
+		vertical-align:middle;
+		font-size:2.5rem;
+		font-weight:bold;
+		letter-spacing:-10px;
+
+		&--first {
+			font-size:7rem;
+			margin-left:30px;
+		}
+
+		&--green {
+			color:$bgColorX;
+		}
+
+		&--yellow {
+			color:$bgColorO;
+		}
+
+		&--blue {
+			color:$bgColorTile;
+		}
+	}
+
+}

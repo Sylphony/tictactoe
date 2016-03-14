@@ -1,0 +1,268 @@
+.board__tile::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn-new-game--invisible {
+  visibility: hidden;
+}
+
+html {
+  font-size: 1em;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+main {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.left, .right {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.right {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.header__title {
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  font-family: "Merienda", cursive;
+}
+
+.header__letter {
+  vertical-align: middle;
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: -10px;
+}
+
+.header__letter--first {
+  font-size: 7rem;
+  margin-left: 30px;
+}
+
+.header__letter--green {
+  color: #5F8;
+}
+
+.header__letter--yellow {
+  color: #FF8;
+}
+
+.header__letter--blue {
+  color: #5AC;
+}
+
+@keyframes bgColorFlashTile {
+  0% {
+    background-color: #5AC;
+  }
+  50% {
+    background-color: #1f5469;
+  }
+  100% {
+    background-color: #5AC;
+  }
+}
+
+@keyframes bgColorFlashX {
+  0% {
+    background-color: #5F8;
+  }
+  50% {
+    background-color: #00bb38;
+  }
+  100% {
+    background-color: #5F8;
+  }
+}
+
+@keyframes bgColorFlashO {
+  0% {
+    background-color: #FF8;
+  }
+  50% {
+    background-color: #eeee00;
+  }
+  100% {
+    background-color: #FF8;
+  }
+}
+
+.board {
+  width: 420px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.board__tile {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  float: left;
+  margin: 10px;
+  background-color: #5AC;
+  border: 2px solid rgba(43, 115, 144, 0.5);
+  font-size: 4rem;
+  font-family: 'Merienda', cursive;
+  cursor: pointer;
+}
+
+.board__tile--X {
+  background-color: #5F8;
+  border-color: rgba(0, 238, 71, 0.5);
+  cursor: default;
+}
+
+.board__tile--X::before {
+  content: "X";
+}
+
+.board__tile--X-animate {
+  animation: bgColorFlashX 0.85s ease-in-out infinite;
+}
+
+.board__tile--O {
+  background-color: #FF8;
+  border-color: rgba(255, 255, 34, 0.5);
+  cursor: default;
+}
+
+.board__tile--O::before {
+  content: "O";
+}
+
+.board__tile--O-animate {
+  animation: bgColorFlashO 0.85s ease-in-out infinite;
+}
+
+.board__tile:not(.board__tile--X):not(.board__tile--O):hover {
+  animation: bgColorFlashTile 0.85s ease-in-out infinite;
+}
+
+.board__tile::after {
+  content: " ";
+  position: absolute;
+  top: 100px;
+  bottom: 5px;
+  left: 30px;
+  right: 30px;
+  z-index: -1;
+  box-shadow: 0 0 25px 8px #486685;
+}
+
+.board--game-over .board__tile {
+  cursor: default;
+}
+
+.board--game-over .board__tile:not(.board__tile--X):not(.board__tile--O):hover {
+  animation: initial;
+}
+
+.btn-new-game {
+  margin: 15px 0;
+  padding: 15px;
+  color: #FFF;
+  background-color: #5AC;
+  border: 0;
+  outline: 0;
+  font-size: 1rem;
+}
+
+.player {
+  position: relative;
+  height: 220px;
+}
+
+.player__sign {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 320px;
+  margin: 20px;
+  padding: 30px 0;
+  z-index: 1;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25), -2px 2px 5px rgba(0, 0, 0, 0.25);
+  transition: top 0.25s ease-in-out, left 0.25s ease-in-out, transform 0.25s ease-in-out;
+}
+
+.player__sign--X {
+  background-color: #5F8;
+  border-color: #008829;
+}
+
+.player__sign--O {
+  background-color: #FF8;
+  border-color: #bbbb00;
+}
+
+.player__sign--front {
+  top: 30px;
+  left: 30px;
+  z-index: 2;
+}
+
+.player__sign::after {
+  content: "Current turn";
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.player__text {
+  vertical-align: middle;
+  font-size: 4rem;
+  font-family: 'Merienda', cursive;
+}
+
+.scoreboard {
+  width: 400px;
+  position: relative;
+  margin-top: 50px;
+  background-color: #0FF;
+}
+
+.scoreboard__box {
+  float: left;
+  width: 33.33%;
+}
+
+.scoreboard__text, .scoreboard__score {
+  font-size: 1.65rem;
+  vertical-align: top;
+  display: block;
+}
+
+.scoreboard__text {
+  font-family: 'Merienda', cursive;
+  padding: 5px;
+}
+
+.scoreboard__text--X {
+  background-color: #5F8;
+}
+
+.scoreboard__text--O {
+  background-color: #FF8;
+}
+
+.scoreboard__text--Tie {
+  background-color: #5AC;
+}
+
+.scoreboard__score {
+  margin-top: 5px;
+}

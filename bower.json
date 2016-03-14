@@ -1,0 +1,24 @@
+{
+  "name": "tictactoe",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "."
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "http://code.jquery.com/jquery-2.2.1.min.js",
+    "bootstrap": "../frameworks/css/bootstrap-minimal.css",
+    "angular": "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.min.js"
+  }
+}

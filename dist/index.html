@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="ticTacToe">
+	<head>
+		<title>Tic-Tac-Toe using AngularJS</title>
+		<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+		<link href='https://fonts.googleapis.com/css?family=Merienda' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic' rel='stylesheet' type='text/css'>
+	</head>
+
+	<body>	
+		<header class="header">
+			<h2 class="header__title">
+				<span class="header__letter header__letter--first header__letter--blue">T</span>
+				<span class="header__letter header__letter--yellow">I</span>
+				<span class="header__letter header__letter--green">C</span>
+				<span class="header__letter header__letter--first header__letter--blue">T</span>
+				<span class="header__letter header__letter--yellow">A</span>
+				<span class="header__letter header__letter--green">C</span>
+				<span class="header__letter header__letter--first header__letter--blue">T</span>
+				<span class="header__letter header__letter--yellow">O</span>
+				<span class="header__letter header__letter--green">E</span>
+		</header>
+		<main ng-controller="BoardCtrl as board">
+			<div class="container-fluid">
+
+				<div class="left">
+					<div class="player">
+						<div class="player__sign player__sign--X" ng-class="{ 'player__sign--front': board.currentPlayer == 'X' }">
+							<span class="player__text">X</span>
+						</div>
+						<div class="player__sign player__sign--O" ng-class="{ 'player__sign--front': board.currentPlayer == 'O' }">
+							<span class="player__text">O</span>
+						</div>
+					</div>
+
+					<div class="scoreboard" ng-controller="ScoreCtrl as score" score-update>
+						<p class="scoreboard__box">
+							<span class="scoreboard__text scoreboard__text--X">X</span> 
+							<span class="scoreboard__score">{{ score.scoreX }}</span>
+						</p>
+						<p class="scoreboard__box">
+							<span class="scoreboard__text scoreboard__text--O">O</span> 
+							<span class="scoreboard__score">{{ score.scoreO }}</span>
+						</p>
+						<p class="scoreboard__box">
+							<span class="scoreboard__text scoreboard__text--Tie">Tie</span> 
+							<span class="scoreboard__score">{{ score.scoreTie }}</span>
+						</p>
+					</div>
+				</div> 
+
+				<div class="right">
+					<ul id="board" class="board clearfix" ng-class="{ 'board--game-over': !board.gameOpen }">
+						<li class="board__tile" 
+							ng-repeat="tileNum in board.board" 
+							data-tile-num="{{ $index }}" 
+							ng-class="[{'board__tile--X-animate': tileNum.isWinTile && board.currentPlayer == 'X'}, 
+									{'board__tile--O-animate': tileNum.isWinTile && board.currentPlayer == 'O'}]" 
+							select-tile>
+						</li>
+					</ul>
+
+					<button class="btn-new-game btn-block" 
+							ng-class="{ 'btn-new-game--invisible': board.gameOpen }" 
+							ng-click="board.resetBoard();" 
+							clear-board>Play again
+					</button>
+				</div> 
+
+			</div>
+		</main>
+
+		<script src="bower_components/angular/index.js"></script>
+		<script src="app/main.js"></script>
+	</body>
+</html>

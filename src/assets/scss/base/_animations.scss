@@ -1,0 +1,24 @@
+@import "../libs/sass-import-once";
+@import "var";
+
+@mixin bgColorFlash($name, $color) {
+	@keyframes #{$name} {
+		0% {
+			background-color:$color;
+		}
+
+		50% {
+			background-color:darken($color, 30%);
+		}
+		
+		100% {
+			background-color:$color;
+		}
+	}
+}
+
+@include exports("animations") {
+	@include bgColorFlash(bgColorFlashTile, $bgColorTile);
+	@include bgColorFlash(bgColorFlashX, $bgColorX);
+	@include bgColorFlash(bgColorFlashO, $bgColorO);
+}

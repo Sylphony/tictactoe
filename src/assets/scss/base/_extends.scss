@@ -1,0 +1,12 @@
+@import "mixins";
+@import "../libs/sass-import-once";
+
+@include exports("extend") {
+	%center-hv {
+		@include center-hv;
+	}
+
+	%invisible {
+		visibility:hidden;
+	}
+}

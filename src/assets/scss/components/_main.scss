@@ -1,0 +1,24 @@
+@import "../base/extends";
+
+html {
+	font-size:1em;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+main {
+	text-align:center;
+	margin-top:20px;
+}
+
+.left, .right {
+	display:inline-block;
+	vertical-align:top;
+}
+
+.right {
+	margin-left:15px;
+	margin-right:15px;
+}

@@ -1,0 +1,41 @@
+@import "../base/var";
+@import "../base/extends";
+
+.scoreboard {
+	width:400px;
+	position:relative;
+	margin-top:50px;
+	background-color:#0FF;
+
+	&__box {
+		float:left;
+		width:33.33%;
+	}
+
+	&__text, &__score {
+		font-size:1.65rem;
+		vertical-align:top;
+		display:block;
+	}
+
+	&__text {
+		font-family: 'Merienda', cursive;
+		padding:5px;
+
+		&--X {
+			background-color:$bgColorX;
+		}
+
+		&--O {
+			background-color:$bgColorO;
+		}
+
+		&--Tie {
+			background-color:$bgColorTie;
+		}
+	}
+
+	&__score {
+		margin-top:5px;
+	}
+}
