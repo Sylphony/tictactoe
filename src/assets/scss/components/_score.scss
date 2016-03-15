@@ -1,5 +1,4 @@
 @import "../base/var";
-@import "../base/extends";
 
 .scoreboard {
 	width:400px;
@@ -8,19 +7,19 @@
 	background-color:#0FF;
 
 	&__box {
-		float:left;
 		width:33.33%;
+		float:left;
 	}
 
 	&__text, &__score {
-		font-size:1.65rem;
-		vertical-align:top;
 		display:block;
+		vertical-align:top;
+		font-size:1.65rem;
 	}
 
 	&__text {
-		font-family: 'Merienda', cursive;
 		padding:5px;
+		font-family: 'Merienda', cursive;
 
 		&--X {
 			background-color:$bgColorX;
